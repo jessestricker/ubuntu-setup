@@ -2,8 +2,8 @@
 
 upgrade-all() {
     # define echo styles
-    info=$(setterm --foreground yellow)
-    crit=$(setterm --foreground white; setterm --background red)
+    info=$(setterm --foreground cyan --bold on)
+    crit=$(setterm --foreground white --background red --bold on)
     reset=$(setterm --default)
 
     echo "${info}### APT: fetching packet lists${reset}"
