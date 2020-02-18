@@ -12,8 +12,10 @@ upgrade-all() {
     echo "${info}### APT: upgrading packages${reset}"
     sudo apt upgrade --auto-remove --purge
 
-    echo "${info}### Snap: refreshing packages${reset}"
-    sudo snap refresh
+    if which "snap" > /dev/null; then
+        echo "${info}### Snap: refreshing packages${reset}"
+        sudo snap refresh
+    fi
 
     if [ -f /var/run/reboot-required ]; then
         echo "${crit}### A reboot is required, you should do it now!${reset}"
