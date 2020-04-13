@@ -15,7 +15,7 @@ cat >> ~/.bashrc <<EOF
 # Include simple functions
 
 if [ -f ~/.bash_functions ]; then
-    . ~/.bash_functions
+	. ~/.bash_functions
 fi
 EOF
 
