@@ -22,5 +22,5 @@ for suite in $suites; do
 done
 
 # clean and update
-sudo apt clean
-sudo apt update
+sudo apt-get clean
+sudo apt-get update

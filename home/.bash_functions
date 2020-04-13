@@ -7,10 +7,10 @@ upgrade-all() {
 	reset=$(setterm --default)
 
 	echo "${info}### APT: fetching packet lists${reset}"
-	sudo apt update
+	sudo apt-get update
 
 	echo "${info}### APT: upgrading packages${reset}"
-	sudo apt upgrade --auto-remove --purge
+	sudo apt-get dist-upgrade --auto-remove --purge
 
 	if which "snap" > /dev/null; then
 		echo "${info}### Snap: refreshing packages${reset}"
