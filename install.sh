@@ -21,3 +21,6 @@ EOF
 
 # source changes
 . ~/.bashrc
+
+# update sources.list
+sudo bash "$dir/system/apt-sources.sh"
