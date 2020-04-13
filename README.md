@@ -7,5 +7,6 @@ The basic setup for any Ubuntu installation.
 ```bash
 wget https://github.com/jessestricker/ubuntu-setup/archive/master.zip
 unzip master.zip
-. ./ubuntu-setup-master/install.sh
+./ubuntu-setup-master/install.sh
+source ~/.profile
 ```
