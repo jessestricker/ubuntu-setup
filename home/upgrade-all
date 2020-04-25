@@ -1,0 +1,26 @@
+#!/bin/sh
+
+set -eu
+
+# set console style constants
+info=$(setterm --foreground cyan --bold on)
+crit=$(setterm --foreground white --background red --bold on)
+reset=$(setterm --default)
+
+# APT
+echo "${info}### APT: fetching packet lists${reset}"
+sudo apt-get update
+
+echo "${info}### APT: upgrading packages${reset}"
+sudo apt-get dist-upgrade --auto-remove --purge --with-new-pkgs --show-progress
+
+# Snap
+if command -v "snap" > /dev/null; then
+	echo "${info}### Snap: refreshing packages${reset}"
+	sudo snap refresh
+fi
+
+# reboot
+if [ -f /var/run/reboot-required ]; then
+	echo "${crit}### A reboot is required, you should do it now!${reset}"
+fi

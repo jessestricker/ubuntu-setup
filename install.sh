@@ -1,23 +1,21 @@
-#!/bin/bash
+#!/bin/sh
 
 set -eu
 
-this=$(realpath ${BASH_SOURCE[0]})
-dir=$(dirname $this)
+dir=$(CDPATH="" cd -- "$(dirname -- "$0")" && pwd)
+
+# constants
+scripts_dir="${HOME}/.local/bin"
+
+# print install steps
+set -x
+
+# create dirs
+mkdir -p "${scripts_dir}"
 
 # copy files
-cp "${dir}/home/.bash_aliases" ~/
-cp "${dir}/home/.bash_functions" ~/
-
-# update ~/.bashrc
-cat >> ~/.bashrc <<EOF
-
-# Include simple functions
-
-if [ -f ~/.bash_functions ]; then
-	. ~/.bash_functions
-fi
-EOF
+cp "${dir}/home/.bash_aliases" "${HOME}"
+cp "${dir}/home/upgrade-all" "${scripts_dir}"
 
 # update sources.list
-sudo bash "$dir/system/apt-sources.sh"
+sudo sh "${dir}/system/apt-sources.sh"
