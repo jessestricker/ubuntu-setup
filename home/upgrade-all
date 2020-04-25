@@ -12,7 +12,7 @@ echo "${info}### APT: fetching packet lists${reset}"
 sudo apt-get update
 
 echo "${info}### APT: upgrading packages${reset}"
-sudo apt-get dist-upgrade --auto-remove --purge --with-new-pkgs --show-progress
+sudo apt-get dist-upgrade --auto-remove --purge --show-progress
 
 # Snap
 if command -v "snap" > /dev/null; then
