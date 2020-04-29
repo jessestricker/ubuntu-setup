@@ -9,12 +9,12 @@ reset=$(setterm --default)
 
 # APT
 echo "${info}### APT: fetching packet lists${reset}"
-sudo apt-get update
+sudo apt update
 
 echo "${info}### APT: upgrading packages${reset}"
-sudo apt-get dist-upgrade --auto-remove --purge --show-progress
+sudo apt full-upgrade --auto-remove --purge
 
-# Snap
+# snap
 if command -v "snap" > /dev/null; then
 	echo "${info}### Snap: refreshing packages${reset}"
 	sudo snap refresh
