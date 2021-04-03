@@ -1,21 +1,21 @@
-#!/bin/sh
+#!/bin/bash
 
 set -eu
 
-dir=$(CDPATH="" cd -- "$(dirname -- "$0")" && pwd)
+# paths
+dir=$(dirname "$(realpath "${BASH_SOURCE[0]}")")
+scripts_dir="${HOME}/bin"
 
-# constants
-scripts_dir="${HOME}/.local/bin"
-
-# print install steps
-set -x
-
-# create dirs
+# set up user
 mkdir -p "${scripts_dir}"
-
-# copy files
 cp "${dir}/home/.bash_aliases" "${HOME}"
+echo "set useful bash aliases in ~/.bash_aliases"
 cp "${dir}/home/upgrade-all" "${scripts_dir}"
+echo "installed upgrade script to ${scripts_dir}"
 
-# update sources.list
-sudo sh "${dir}/system/apt-sources.sh"
+# set up system
+sudo "${dir}/gen-apt-sources.sh"
+
+# print finish message
+echo
+echo "all set up! to enable the new commands run '. ~/.profile'"
