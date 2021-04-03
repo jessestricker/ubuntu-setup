@@ -1,25 +1,11 @@
 # ubuntu-setup
 
-The basic setup for any Ubuntu installation.
+The basic setup for my Ubuntu installations.
 
-## Installation
+## Usage
 
-There are two installation method.\
-Because the outcome is identical, you may choose any of the two.
-
-### Via `git clone`
-
-```bash
-git clone https://github.com/jessestricker/ubuntu-setup.git
-./ubuntu-setup/install.sh
-source ~/.profile
-```
-
-### Via `wget` and `unzip`
-
-```bash
-wget https://github.com/jessestricker/ubuntu-setup/archive/master.zip
-unzip master.zip
-./ubuntu-setup-master/install.sh
-source ~/.profile
-```
+1. Get the repository, either using `git clone` or downloading the 
+[ZIP](https://github.com/jessestricker/ubuntu-setup/archive/refs/heads/master.zip)
+2. Run the `instal.sh` script in a Bash shell
+3. ???
+4. Profit!
