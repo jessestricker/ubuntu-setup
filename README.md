@@ -4,8 +4,6 @@ The basic setup for my Ubuntu installations.
 
 ## Usage
 
-1. Get the repository, either using `git clone` or downloading the 
+1. Get the repository: `git clone` or `wget` the 
 [ZIP](https://github.com/jessestricker/ubuntu-setup/archive/refs/heads/master.zip)
-2. Run the `instal.sh` script in a Bash shell
-3. ???
-4. Profit!
+2. Run the `install.sh` script in a Bash shell
