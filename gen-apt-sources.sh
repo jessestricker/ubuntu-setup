@@ -1,11 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 
 set -eu
 
 # ensure root user
 if [ "$(id -u)" -ne 0 ]; then
-	echo "error: this script must be run as root"
-	exit 1
+  echo "error: this script must be run as root"
+  exit 1
 fi
 
 # define constants and path
@@ -23,14 +23,15 @@ mv "${file}" "${backup_file}"
 
 # echo into file
 for suite in ${suites}; do
-	line="deb ${repo_url} ${suite} ${comps}"
-	echo "${line}" >> "${file}"
+  line="deb ${repo_url} ${suite} ${comps}"
+  echo "    ${line}" >>"${file}"
 done
 
 # display
-echo "the new content of ${file}:"
+echo "the new content of ${file} is:"
 cat "${file}"
 
 # clean and update
-sudo apt-get clean
-sudo apt-get update
+echo "updating APT cache"
+sudo apt-get clean >/dev/null
+sudo apt-get update >/dev/null
