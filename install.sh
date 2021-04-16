@@ -14,7 +14,7 @@ cp "${dir}/home/upgrade-all" "${scripts_dir}"
 echo "installed upgrade script to ${scripts_dir}"
 
 # set up system
-sudo "${dir}/gen-apt-sources.sh"
+sudo python3 "${dir}/gen_apt_sources.py"
 
 # print finish message
 echo
